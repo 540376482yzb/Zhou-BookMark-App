@@ -15,16 +15,11 @@ const store = function() {
   function getCurrentItem(){
     return currentItem
   }
-  //=======================================================================
-
-
   //=================  set current Item ===================================
   
   function setCurrentItem(item){
     currentItem = item
   }
-  //=======================================================================
-
   //=================  add Item ===========================================
  
   function addItem(item){
@@ -63,14 +58,10 @@ const store = function() {
     return item.desc
 
   }
-  //============================================================
-
-
   //=================  delete item =============================
   function deleteItem(id){
     items = items.filter( item => item.id !== id)
   }
-  //============================================================
   
   return {
     currentItem,

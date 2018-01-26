@@ -148,5 +148,6 @@ const modelView = function () {
     renderSideBar,
     handleEvents,
     renderDetail,
+    renderForm
   }
 }()
