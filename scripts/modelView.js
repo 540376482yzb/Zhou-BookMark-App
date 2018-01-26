@@ -19,9 +19,11 @@ const modelView = function () {
   function renderForm(){
     if(store.edit){
       $('.form-create').removeClass('hidden')
+      $('.overlay, .overlay-message').show();
     }
     else{
-      $('.form-create').addClass('hidden')
+      // $('.form-create').addClass('hidden');
+      $('.overlay, .overlay-message').hide();
     }
   }
   //======= generate page for detail view ==============================

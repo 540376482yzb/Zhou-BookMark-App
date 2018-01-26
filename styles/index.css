@@ -155,20 +155,6 @@ body{
   padding: 10px 20px;
 }
 
-.form-create{
-  display: flex;
-  background-color: white;
-  position: absolute;
-  border: solid grey 2px;
-  top:30%;
-  left:50%;
-  transform: translateX(-50%);
-  width:600px;
-  height:300px;
-  padding: 10px 10px;
-  align-content:space-around;
-}
-
 .form-holder{
   display: block;
   height: 100%;
@@ -240,6 +226,34 @@ body{
 }
 .hidden{
   display: none;
+}
+.overlay {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgba(32, 30, 30, 0.904);
+  opacity:0.8;
+  display:block;
+  z-index:1001;
+}
+.form-create{
+  display: flex;
+  background-color: white;
+  top:30%;
+  left:50%;
+  transform: translateX(-50%);
+  width:600px;
+  height:300px;
+  padding: 10px 10px;
+  align-content:space-around;
+}
+.overlay-message{
+  position: fixed;
+  opacity:1;
+  z-index:1002;
+  box-sizing:border-box;
 }
 
 
