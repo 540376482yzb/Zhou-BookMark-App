@@ -40,7 +40,6 @@ body{
   padding: 40px 20px;
   margin-top: 40px;
   border-right: solid grey 2px;
-  background-color:#80DEEA
 }
 .control-area{
   display: block;
@@ -200,7 +199,7 @@ body{
   background-color: #536DFE;
 
 }
-.concel-btn{
+.cancel-btn{
   background-color: #FF4081;
 
 }

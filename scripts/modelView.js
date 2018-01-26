@@ -25,7 +25,6 @@ const modelView = function () {
     }
   }
   //======= generate page for detail view ==============================
-
   function generateDetail() {
     if ($.isEmptyObject(store.getCurrentItem())) {
       store.setCurrentItem(store.getItems()[0])
@@ -46,8 +45,6 @@ const modelView = function () {
     }
     return ''
   }
-
-
   function generateRandomColor() {
     const color = ['green', 'orange', 'blue', 'yellow', 'pink', 'black']
     const pickOne = Math.floor(Math.random() * 6) // 0 - 5
@@ -61,7 +58,6 @@ const modelView = function () {
     })
     return pageTemplate
   }
-
   function generateList(item) {
 
     return `<li class='book-mark' id= ${item.id}>
@@ -72,6 +68,8 @@ const modelView = function () {
     <div class='book-mark-rating'>${item.ratingStar}</div>
   </li>`
   }
+
+
   //==========================================================
 
 
@@ -82,10 +80,6 @@ const modelView = function () {
       renderForm()
     })
   }
-
-  //==========================================================
-
-
   //============= handle side bar click list event ===========
   function handleClickList() {
     $('.book-mark-lists').on('click', '.book-mark', (e) => {
@@ -99,10 +93,6 @@ const modelView = function () {
       renderDetail()
     })
   }
-
-  //============================================================
-
-
   //============= handle filter =============================
   function handleFilter() {
     $('#filter-rating').on('change', e => {
@@ -111,12 +101,7 @@ const modelView = function () {
       renderSideBar()
     })
   }
-
-  //==========================================================
-
-
   //============ handle delete event ========================
-
   function handleDelete() {
     $('.card-container').on('click', '.btn-delete', e => {
       const foundId = $(e.currentTarget).attr('id')
@@ -127,35 +112,29 @@ const modelView = function () {
     })
 
   }
-
-  //==========================================================
-
   //================= handle form submit =====================
-  
   function handleFormSubmit(){
     $('.form-create').submit( event => {
       event.preventDefault()
-
       const title = $(event.currentTarget).find('.form-title').val()
       const url = $(event.currentTarget).find('.form-url').val()
       const rating = Number($(event.currentTarget).find('.form-rating').val())
-      console.log('line 142', rating)
       const desc = $(event.currentTarget).find('.form-desc-textarea').val()
       const item = {id:cuid(),title,url,rating,desc}
       store.addItem(item)
-      console.log('line 146', store.getItems())
       store.edit = false;
+      $('.form-create')[0].reset()
       renderForm();
       renderSideBar();
     })
-    $('form-create').on('click','form-cancel', e=> {
-      store.edit = false;
 
+    $('.form-create').on('click','.cancel-btn', e=> {
+      store.edit = false;
+      $('.form-create')[0].reset()
+      renderForm();
     })
   }
 
-
-  //===========================================================
 
   function handleEvents() {
     handleClickList()
