@@ -7,7 +7,33 @@ const api = function () {
     $.getJSON(endPoint, callback)
   }
 
+  function addItem(bookmark, callback){
+    const endPoint = `${BASE_URL}/zhou/bookmarks`
+    const sendData = JSON.stringify(bookmark)
+    const settings = {
+      url: endPoint,
+      method:'POST',
+      data:sendData,
+      contentType:'application/json',
+      success:callback
+    }
+    $.ajax(settings)
+  }
+
+  function deleteItem(id, callback){
+    const endPoint = `${BASE_URL}/zhou/bookmarks/${id}`
+    const settings = {
+      url:endPoint,
+      method:'DELETE',
+      dataType:'json',
+      contentType:'application/json',
+      success: callback
+    }
+    $.ajax(settings)
+  }
   return{
-    getItems
+    getItems,
+    addItem,
+    deleteItem
   }
 }()

@@ -62,7 +62,6 @@ const store = function() {
   function deleteItem(id){
     items = items.filter( item => item.id !== id)
   }
-  
   return {
     currentItem,
     minStar,

@@ -1,6 +1,6 @@
 'use strict'
-/* global store cuid */
-const modelView = function () {
+/* global store,cuid,api */
+const modelView = function () { 
 
   function renderSideBar() {
     const items = store.getItems().filter(item => {
@@ -18,10 +18,10 @@ const modelView = function () {
 
   function renderForm(){
     if(store.edit){
-      $('.form-create').show()
+      $('.form-create').removeClass('hidden')
     }
     else{
-      $('.form-create').hide()
+      $('.form-create').addClass('hidden')
     }
   }
   //======= generate page for detail view ==============================
@@ -32,11 +32,15 @@ const modelView = function () {
     const colorPicker = generateRandomColor()
     const item = store.getCurrentItem()
     if (item) {
+      let shortTitle = item.title
+      if(item.title.length > 18){
+        shortTitle = item.title.substring(0,18)+'...'
+      }
       return `<div class="card-header-color ${colorPicker}">
                   <!-- random background color -->
                 </div>
                 <div class="card-body">
-                  <a target="_blank" href="${item.url}" class="card-title">${item.title}</a>
+                  <a target="_blank" href="${item.url}" class="card-title">${shortTitle}</a>
                   <a href="#" class='btn btn-delete' id= ${item.id}>DELETE</a>
                   <div class="card-description">
                     ${item.desc}
@@ -68,7 +72,6 @@ const modelView = function () {
     <div class='book-mark-rating'>${item.ratingStar}</div>
   </li>`
   }
-
 
   //==========================================================
 
@@ -105,10 +108,14 @@ const modelView = function () {
   function handleDelete() {
     $('.card-container').on('click', '.btn-delete', e => {
       const foundId = $(e.currentTarget).attr('id')
-      store.deleteItem(foundId)
-      store.setCurrentItem({})
-      renderSideBar()
-      renderDetail()
+      api.deleteItem(foundId, ()=> {
+        console.log('delete')
+        store.deleteItem(foundId)
+        store.setCurrentItem({})
+        renderSideBar()
+        renderDetail()
+
+      })
     })
 
   }
@@ -121,11 +128,14 @@ const modelView = function () {
       const rating = Number($(event.currentTarget).find('.form-rating').val())
       const desc = $(event.currentTarget).find('.form-desc-textarea').val()
       const item = {id:cuid(),title,url,rating,desc}
-      store.addItem(item)
-      store.edit = false;
-      $('.form-create')[0].reset()
-      renderForm();
-      renderSideBar();
+      
+      api.addItem(item, () => {
+        store.addItem(item)
+        store.edit = false;
+        $('.form-create')[0].reset()
+        renderForm();
+        renderSideBar();
+      })
     })
 
     $('.form-create').on('click','.cancel-btn', e=> {
