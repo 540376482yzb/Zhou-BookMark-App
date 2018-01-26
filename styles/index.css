@@ -1,0 +1,227 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  font-family:"Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body{
+  position: relative
+}
+
+.header-container{
+  width: 100%;
+  height: 20vh;
+  padding: 20px 0;
+  background-color: #3F51B5;
+  color:white;
+  display:flex;
+}
+.header-text{
+  width: 100%;
+  text-align: center;
+  align-self:center;
+}
+.sidebar-container{
+  display: inline-block;
+  width:30vw;
+  height:80vh;
+  vertical-align: top;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-right: solid grey 2px;
+  background-color:#80DEEA
+}
+.control-area{
+  display: block;
+  margin-bottom: 40px;
+  position:fixed;
+  width: 30vw;
+}
+.control-item{
+  height: 30px;
+}
+#filter-rating{
+  width:60%;
+  padding-left: 10px;
+  letter-spacing: 8px;
+}
+
+.btn{
+  display: inline-block;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0 10px;
+}
+.add-btn{
+  margin-left: 20px;
+  line-height: 30px;
+  color: white;
+  background:#3F51B5;
+}
+.book-mark-lists{
+  list-style: none;
+  margin-top:45px;
+  height:85%;
+  overflow-y: scroll;
+}
+.book-mark{
+  padding: 5px 5px;
+}
+.book-mark-title{
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+}
+.book-mark-description{
+  padding-left:20px;
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  font-style: italic;
+}
+.book-mark-rating{
+  padding-left: 20px;
+  color:black
+
+}
+.active{
+  border-left: solid orange 5px;
+}
+
+.detail-view{
+  margin-top: 40px;
+  display: inline-block;
+  width: 65vw;
+  height: 80vh;
+  vertical-align: top;
+  padding: 0 20px;
+}
+.card-container{
+  width: 90%;
+  margin: 0 auto;
+}
+.card-header-color{
+  background-color: #536DFE;
+  width: 100%;
+  height: 100px;
+}
+.card-body{
+  position: relative;
+  padding:10px 20px 10px 20px
+}
+.card-title{
+  display: block;
+  color: black;
+  font-size:50px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-delete{
+  display:block;
+  position: absolute;
+  top:20px;
+  right:20px;
+  padding: 15px 20px;
+  background-color: #FF4081;
+  color:white
+}
+.card-description{
+  font-size:20px;
+  letter-spacing: 1px;
+  font-style: italic;
+  padding: 10px 20px;
+}
+
+.form-create{
+  display: flex;
+  background-color: white;
+  position: absolute;
+  border: solid grey 2px;
+  top:30%;
+  left:50%;
+  transform: translateX(-50%);
+  width:600px;
+  height:300px;
+  padding: 10px 10px;
+  align-content:space-around;
+}
+
+.form-holder{
+  display: block;
+  height: 100%;
+  width: 50%;
+  padding: 10px 10px;
+}
+.form-item{
+  width:100%;
+  padding: 10px 10px;
+}
+.form-title, 
+.form-rating, 
+.form-desc-textarea,
+.form-url{
+  border: solid grey 1px;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+.form-desc-textarea{
+  display:block;
+  width:90%;
+  height: 130px;
+  overflow: hidden; 
+}
+.form-label{
+  display:block;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+}
+.form-btn{
+  color:white;
+  font-weight:700;
+  padding:8px 15px;
+  font-size:18px;
+  border:0;
+
+}
+.confirm-btn{
+  background-color: #536DFE;
+
+}
+.concel-btn{
+  background-color: #FF4081;
+
+}
+.green{
+  background-color: #8BC34A
+}
+.orange{
+  background-color: #FF9800;
+}
+.blue{
+  background-color: #4FC3F7;
+
+}
+.yellow{
+  background-color: #FFF176;
+}
+.pink{
+  background-color: #E91E63
+  ;
+}
+.black{
+  background-color: #424242;
+}
+
