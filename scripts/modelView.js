@@ -111,7 +111,6 @@ const modelView = function () {
     $('.card-container').on('click', '.btn-delete', e => {
       const foundId = $(e.currentTarget).attr('id')
       api.deleteItem(foundId, ()=> {
-        console.log('delete')
         store.deleteItem(foundId)
         store.setCurrentItem({})
         renderSideBar()
