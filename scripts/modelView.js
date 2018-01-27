@@ -22,7 +22,7 @@ const modelView = function () {
       $('.overlay, .overlay-message').show();
     }
     else{
-      // $('.form-create').addClass('hidden');
+      $('.form-create').addClass('hidden');
       $('.overlay, .overlay-message').hide();
     }
   }

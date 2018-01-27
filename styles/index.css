@@ -224,9 +224,7 @@ body{
 .black{
   background-color: #424242;
 }
-.hidden{
-  display: none;
-}
+
 .overlay {
   position:fixed;
   top:0;
@@ -254,6 +252,9 @@ body{
   opacity:1;
   z-index:1002;
   box-sizing:border-box;
+}
+.hidden{
+  display: none;
 }
 
 
