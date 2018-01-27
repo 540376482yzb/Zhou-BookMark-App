@@ -1,5 +1,5 @@
 'use strict'
-/* global store,cuid,api */
+/* global store,api */
 const modelView = function () { 
 
   function renderSideBar() {
@@ -75,8 +75,6 @@ const modelView = function () {
   </li>`
   }
 
-  //==========================================================
-
 
   //============= handle create book mark event ==============
   function handleCreate(){
@@ -115,7 +113,6 @@ const modelView = function () {
         store.setCurrentItem({})
         renderSideBar()
         renderDetail()
-
       })
     })
 
@@ -128,14 +125,14 @@ const modelView = function () {
       const url = $(event.currentTarget).find('.form-url').val()
       const rating = Number($(event.currentTarget).find('.form-rating').val())
       const desc = $(event.currentTarget).find('.form-desc-textarea').val()
-      const item = {id:cuid(),title,url,rating,desc}
-      
-      api.addItem(item, () => {
-        store.addItem(item)
+      const item = {title,url,rating,desc}
+      api.addItem(item, (newItem) => {
+        store.addItem(newItem)
         store.edit = false;
         $('.form-create')[0].reset()
-        renderForm();
         renderSideBar();
+        renderDetail();
+        renderForm();
       })
     })
 

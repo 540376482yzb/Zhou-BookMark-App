@@ -4,7 +4,7 @@ function init(){
   
   api.getItems( bookmarks => {
     bookmarks.forEach( bookmark => store.addItem(bookmark))
-    store.setCurrentItem()
+    store.setCurrentItem({})
     // render page and register event listeners
     modelView.renderSideBar()
     modelView.renderDetail()
