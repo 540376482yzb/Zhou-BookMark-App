@@ -3,7 +3,7 @@
 const store = function() {
   
   let items = []
-  let currentItem = {}
+  let currentItem =null;
   const minStar = 0
   //================= get items or item ==================================
   function getItems(){
@@ -30,30 +30,14 @@ const store = function() {
   function populateItem(item){
     const newItem = item
     newItem.shortDesc= shortSentence(item)
-    switch(item.rating){
-    case 1: 
-      newItem.ratingStar = '<span>★</span> &nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>'
-      break;
-    case 2: 
-      newItem.ratingStar = '<span>★</span> &nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>'
-      break;
-    case 3: 
-      newItem.ratingStar = '<span>★</span> &nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>☆</span>&nbsp;&nbsp;<span>☆</span>'
-      break;
-    case 4: 
-      newItem.ratingStar = '<span>★</span> &nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>☆</span>'
-      break;
-    case 5: 
-      newItem.ratingStar = '<span>★</span> &nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>&nbsp;&nbsp;<span>★</span>'
-      break;
-    }
+    newItem.create = false
     newItem.edit = false
     return newItem
   }
 
   function shortSentence(item){
-    if(item.desc.length > 50){
-      return item.desc.substring(0,50)+ '...'
+    if(item.desc.length > 40){
+      return item.desc.substring(0,40)+ '...'
     }
     return item.desc
 
@@ -62,6 +46,7 @@ const store = function() {
   function deleteItem(id){
     items = items.filter( item => item.id !== id)
   }
+
   return {
     currentItem,
     minStar,
@@ -72,5 +57,4 @@ const store = function() {
     setCurrentItem,
     deleteItem
   }
-
 }()

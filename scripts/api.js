@@ -31,9 +31,23 @@ const api = function () {
     }
     $.ajax(settings)
   }
+
+  function editItem(id, updateData, callback){
+    const endPoint = `${BASE_URL}/zhou/bookmarks/${id}`
+    const settings ={
+      url:endPoint,
+      method: 'PATCH',
+      detaType:'json',
+      contentType:'application/json',
+      data: JSON.stringify(updateData),
+      success: callback
+    }
+    $.ajax(settings)
+  }
   return{
     getItems,
     addItem,
-    deleteItem
+    deleteItem,
+    editItem
   }
 }()
