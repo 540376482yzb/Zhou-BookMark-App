@@ -1,4 +1,4 @@
-access live demo site : https://540376482yzb.github.io/my_bookmark_app/#
+access live demo site : https://thinkful-ei18.github.io/Zhou-BookMark-App/
 
 
 As a user:
